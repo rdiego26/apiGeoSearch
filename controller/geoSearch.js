@@ -4,13 +4,10 @@
  * @desc
  */
 
-var _  = require('underscore');
-
-var constants = require('../utils/Constants');
-var querystring = require('querystring');
-
-
-var _result = {status:{}, date:new Date(), data:[]};
+var _  = require('underscore'),
+    constants = require('../utils/Constants'),
+    querystring = require('querystring'),
+    _result = require('../utils/Result');
 
 /**
  * Query Google Maps API for attempt get address.
@@ -19,7 +16,7 @@ var _result = {status:{}, date:new Date(), data:[]};
  */
 exports.searchByFieldAddress = function(req, res, callback) {
 
-    var _blackListFields = ['types'];
+    var _blackListFields = ['types', 'place_id'];
     var _filter = {sensor:false};
 
 
@@ -121,7 +118,7 @@ exports.searchByLatLng = function(req, res, callback) {
     _request.end();
 
 
-}
+};
 
 /**
  * Set data on result.
@@ -131,8 +128,6 @@ exports.searchByLatLng = function(req, res, callback) {
 exports.setData = function(req, res) {
 
     _result.status = constants.http.ok;
-    res.header('Content-type', constants.header.json + ';charset=UTF-8;');
-    res.writeHead(_result.status.cod);
     res.end( JSON.stringify(_result) );
 
-}
+};
