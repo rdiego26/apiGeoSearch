@@ -10,14 +10,14 @@ var express  = require('express'),
     http = require('http');
 
 
-var constants = require('./utils/Constants');
-var geoSearchController = require('./controller/geoSearch');
-var _result = {status:{}, date:new Date(), data:[]};
+var constants = require('./utils/Constants'),
+    geoSearchController = require('./controller/geoSearch'),
+     _result = require('./utils/Result');
 
 /* App Configuration */
 var app = express();
 app.set('port', constants.server.port);
-app.set('title', 'apiGeoSearch');
+app.set('title', constants.app.name);
 
 
 /* Include CORS and JSON Type on ALL res's  */
