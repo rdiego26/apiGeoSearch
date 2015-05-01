@@ -3,8 +3,12 @@
  */
 Constants = {
 
+    app: {
+        name: 'apiGeoSearch'
+    },
+
     header: {
-        json: 'application/json'
+        json: 'application/json;charset=UTF-8;'
     },
 
     server: {
@@ -28,7 +32,4 @@ Constants = {
 
 }
 
-module.exports = Constants;
-
-
-
+module.exports = Object.freeze(Constants);
